@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 const File = require('./File')(mongoose);
 
 const commentSchema = new mongoose.Schema({
@@ -10,16 +10,16 @@ const commentSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  created: { 
-    type: Date, 
+  created: {
+    type: Date,
     default: Date.now,
   },
-  updated: { 
-    type: Date, 
+  updated: {
+    type: Date,
     default: Date.now,
   },
-  files: [File.schema]
+  files: [File.schema],
 });
 
-const Comment = mongoose.model("Comment", commentSchema);
+const Comment = mongoose.model('Comment', commentSchema);
 module.exports = Comment;

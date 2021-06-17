@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 
 const fileSchema = new mongoose.Schema({
   originalname: {
@@ -31,5 +31,5 @@ const fileSchema = new mongoose.Schema({
   },
 });
 
-const File = mongoose.model("File", fileSchema);
+const File = mongoose.model('File', fileSchema);
 module.exports = File;

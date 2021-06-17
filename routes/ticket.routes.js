@@ -11,5 +11,5 @@ router
   .get('/:ticketId', ticket.getTicket)
   .get('/', paginate, ticket.getTickets)
   .post('/', upload, ticket.postTicket)
-  .patch('/:ticketId', upload, ticket.patchTicket)
+  .patch('/:ticketId', upload, ticket.patchTicket);
 module.exports = router;

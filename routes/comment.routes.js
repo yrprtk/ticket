@@ -10,5 +10,5 @@ router
   .get('/:commentId', comment.getComment)
   .get('/', comment.getComment)
   .post('/', upload, comment.postComment)
-  .patch('/:commentId', upload, comment.patchComment)
+  .patch('/:commentId', upload, comment.patchComment);
 module.exports = router;

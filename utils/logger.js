@@ -7,8 +7,8 @@ module.exports = createLogger({
       format.timestamp({ format: 'MMM-DD-YYYY HH:mm:ss' }),
       format.align(),
       format.printf(
-        (info) => `${[info.timestamp]}: ${info.level}: ${info.message}`,
-      ),
+        (info) => `${[info.timestamp]}: ${info.level}: ${info.message}`
+      )
     ),
   }),
 });

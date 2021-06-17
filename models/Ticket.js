@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 const File = require('./File')(mongoose);
 const Comment = require('./Comment')(mongoose);
 
@@ -10,8 +10,8 @@ const ticketSchema = new mongoose.Schema({
   },
   priority: {
     type: String,
-    enum: ["high", "medium", "low"],
-    default: "low",
+    enum: ['high', 'medium', 'low'],
+    default: 'low',
   },
   title: {
     type: String,
@@ -33,24 +33,24 @@ const ticketSchema = new mongoose.Schema({
   },
   status: {
     type: String,
-    enum: ["new", "appointed", "close", "archive"],
-    default: "new",
+    enum: ['new', 'appointed', 'close', 'archive'],
+    default: 'new',
   },
-  created: { 
-    type: Date, 
+  created: {
+    type: Date,
     default: Date.now,
   },
-  updated: { 
-    type: Date, 
+  updated: {
+    type: Date,
     default: Date.now,
   },
   files: [File.schema],
   comments: [Comment.schema],
 });
 
-ticketSchema.pre('updateOne', function() {
+ticketSchema.pre('updateOne', function () {
   this.set({ updated: new Date() });
 });
 
-const Ticket = mongoose.model("Ticket", ticketSchema);
+const Ticket = mongoose.model('Ticket', ticketSchema);
 module.exports = Ticket;
