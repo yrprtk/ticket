@@ -46,26 +46,27 @@ const userSchema = new mongoose.Schema({
   ],
 });
 
+const User = mongoose.model('User', userSchema);
+module.exports = User;
+
 // encrypt the password using 'bcryptjs'
 // Mongoose -> Document Middleware
-userSchema.pre('save', async function (next) {
+userSchema.pre('save', async (next) => {
   // check the password if it is modified
   if (!this.isModified('password')) {
     return next();
   }
   // Hashing the password
   this.password = await bcrypt.hash(this.password, 12);
-  next();
+  return next();
 });
 
 // This is Instance Method that is gonna be available on all documents in a certain collection
-userSchema.statics.getByEmail = async function (email) {
-  return await User.findOne({ email, active: { $ne: false } });
+userSchema.statics.getByEmail = async (email) => {
+  const user = await User.findOne({ email, active: { $ne: false } });
+  return user;
 };
 
-userSchema.pre('updateOne', function () {
+userSchema.pre('updateOne', () => {
   this.set({ updated: new Date() });
 });
-
-const User = mongoose.model('User', userSchema);
-module.exports = User;

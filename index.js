@@ -17,7 +17,7 @@ app.use((req, res) => {
   res.status(404).send('Not found');
 });
 
-(async function () {
+(async () => {
   try {
     await mongoose.connect(config.dbURL, {
       useUnifiedTopology: true,

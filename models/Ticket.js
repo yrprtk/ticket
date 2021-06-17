@@ -48,7 +48,7 @@ const ticketSchema = new mongoose.Schema({
   comments: [Comment.schema],
 });
 
-ticketSchema.pre('updateOne', function () {
+ticketSchema.pre('updateOne', () => {
   this.set({ updated: new Date() });
 });
 

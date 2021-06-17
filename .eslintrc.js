@@ -18,5 +18,12 @@ module.exports = {
       },
     ],
     'no-underscore-dangle': 'off',
+    'no-plusplus': 'off',
+    'no-param-reassign': [
+      2,
+      {
+        props: false,
+      },
+    ],
   },
 };
